@@ -28,4 +28,55 @@
 </script>
 <script type='text/javascript' src='https://b2bdvu--rdvansom.sandbox.my.site.com/ESWDevryAgent1739830959621/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://b2bdvu--rdvansom.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DWJ000001O0fp" method="POST">
+
+<input type="hidden" name="orgid" value="00DWJ000001O0fp"/>
+<input type="hidden" name="retURL" value="Google "/>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="abdel.alfath@devry.edu">                                         -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br/>
+
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br/>
+
+<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br/>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br/>
+
+<label for="description">Description</label><textarea name="description"></textarea><br/>
+
+Canvas Course Id:<input  id="00NWJ000000n9mv" maxlength="255" name="00NWJ000000n9mv" size="20" type="text" /><br/>
+
+Canvas Enrollment Id:<input  id="00NWJ000000n5OM" maxlength="255" name="00NWJ000000n5OM" size="20" type="text" /><br/>
+
+Order Number:<input  id="00NWJ000000n5Px" maxlength="18" name="00NWJ000000n5Px" size="20" type="text" /><br/>
+
+Contact Id:<input  id="00NWJ000000n39d" maxlength="18" name="00NWJ000000n39d" size="20" type="text" /><br/>
+<!--Contact Id: <input  id="cas3_lkid" maxlength="80" name="cas3_lkold" size="20" type="text" /><br/-->
+
+<input type="hidden" id="type" name="type" value="Course Cancelation Refund Request" />
+
+Cancellation Reason:<select  id="00NWJ000001Sq7z" name="00NWJ000001Sq7z" title="Cancellation Reason"><option value="">--None--</option><option value="Time constraints">Time constraints</option>
+<option value="Course does not meet my expectations">Course does not meet my expectations</option>
+<option value="Course is not challenging enough">Course is not challenging enough</option>
+<option value="Technical issues">Technical issues</option>
+<option value="Personal reasons">Personal reasons</option>
+</select><br/>
+
+<input type="submit" name="submit"/>
+
+</form>
+
 </html>
