@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,16 +13,16 @@
 <!--  character set of your HTML page.                                        -->
 <!--  ----------------------------------------------------------------------  -->
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<!-- <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"> -->
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D6A000002IHK0" method="POST">
+<!-- <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D6A000002IHK0" method="POST">
 
 <input type=hidden name="orgid" value="00D6A000002IHK0">
-<input type=hidden name="retURL" value="http://google.com">
+<input type=hidden name="retURL" value="http://google.com"> -->
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
@@ -32,7 +32,7 @@
 <!--  value="tara.lapinskas@devry.edu">                                       -->
 <!--  ----------------------------------------------------------------------  -->
 
-<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+<!-- <label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
 
 Canvas Course Id:<input  id="00NUi000003NCZr" maxlength="255" name="00NUi000003NCZr" size="20" type="text" /><br>
 
@@ -55,4 +55,34 @@ Cancellation Reason:<select  id="00NUi000003QpFF" name="00NUi000003QpFF" title="
 
 </form>
 
-</body>
+</body> -->
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>My External Page</h1>
+        <div id="lightning-out"></div>
+        <script src="https://orgfarm-db4647980b-dev-ed.develop.my.site.com/formSitevforcesite/lightning/lightning.out.js"></script>
+        <script>
+            $Lightning.use(
+                'c:MyLightningOutApp', // name of the Lightning Out app
+                function () { // callback after the framework and app load
+                    $Lightning.createComponent(
+                        'c:SimpleLOutApp', // top-level component of the Lightning Out app
+                        {}, // attributes to set on the component
+                        'lightning-out', // DOM element ID where the component is inserted
+                        function (cmp) { // callback after the component loads
+                            console.log('The component was created.');
+                        }
+                    );
+                },
+                'https://orgfarm-db4647980b-dev-ed.develop.my.site.com/formSitevforcesite' // Experience Cloud site endpoint
+            );
+        </script>
+    </body>
+</html>
+
