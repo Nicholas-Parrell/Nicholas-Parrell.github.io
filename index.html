@@ -59,31 +59,186 @@ Cancellation Reason:<select  id="00NUi000003QpFF" name="00NUi000003QpFF" title="
 
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://orgfarm-db4647980b-dev-ed.develop.lightning.force.com/lightning/lightning.out.js"></script>
 
-    </head>
-    <body>
-        <h1>My External Page</h1>
-        <div id="lightning-out"></div>
-        <script>
-            $Lightning.use(
-                'c:SimpleLOutApp', // name of the Lightning Out app
-                function () { // callback after the framework and app load
-                    $Lightning.createComponent(
-                        'c:loutAura', // top-level component of the Lightning Out app
-                        {}, // attributes to set on the component
-                        'lightning-out', // DOM element ID where the component is inserted
-                        function (cmp) { // callback after the component loads
-                            console.log('The component was created.');
-                        }
-                    );
-                },
-                'https://orgfarm-db4647980b-dev-ed.develop.my.site.com/auraFormLightningOut' // Experience Cloud site endpoint
-            );
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://orgfarm-db4647980b-dev-ed.develop.lightning.force.com/lightning/lightning.out.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+        integrity="sha384-YT1k7wz3lYj3Ey7x7o6uX6oJb9Hn8qK1D9j6gHK8t9sUuB2t3H8iZl3J0c1D0JwS" crossorigin="anonymous" />
+
+    <style>
+        body {
+            background-color: #f6f7f9;
+        }
+
+        .lwc-slot {
+            min-height: 520px;
+            border: 1px dashed #dbdbdb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: #ffffff;
+        }
+
+        /* Lightweight skeleton placeholders while your LWC loads */
+        .skeleton {
+            height: 1.1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #eee 25%, #e6e6e6 37%, #eee 63%);
+            background-size: 400% 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        .hero.is-primary .title,
+        .hero.is-primary .subtitle {
+            color: #fff;
+        }
+
+        .picture-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(10, 10, 10, 0.08);
+            background: #fff;
+        }
+
+        .description-card {
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(10, 10, 10, 0.08);
+            background: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>My External Page</h1>
+    <!-- <div id="lightning-out"></div> -->
+    <!-- ========== Header Section ========== -->
+    <header class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-2">Honor or Memorial Donation</h1>
+                <p class="subtitle is-5">Make a gift in honor or memory of someone special.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== Picture Section ========== -->
+    <section id="picture-section" class="section">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-6">
+                    <figure class="image is-16by9 picture-frame">
+                        <!-- Replace the src below with your own image -->
+                        <img src="https://via.placeholder.com/1280x720.png?text=Tribute+Photo"
+                            alt="A commemorative image representing the tribute" />
+                    </figure>
+                </div>
+                <div class="column is-6">
+                    <!-- Optional short caption under picture -->
+                    <p class="has-text-grey">
+                        Add a meaningful photo to set the tone for your tribute page.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Description Section ========== -->
+    <section id="description-section" class="section">
+        <div class="container">
+            <div class="card description-card">
+                <div class="card-content content">
+                    <h2 class="title is-4">About Your Tribute</h2>
+                    <p>
+                        Use this space to explain how honor and memorial donations are used, minimums or guidelines,
+                        and any special acknowledgements you offer. Keep it concise and reassuring.
+                    </p>
+                    <ul>
+                        <li>Explain what information donors will need.</li>
+                        <li>Mention acknowledgement options for recipients.</li>
+                        <li>Share the impact of gifts and any tax details.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LWC Form Mount Section ========== -->
+    <main id="form-section" class="section" role="main">
+        <div class="container">
+            <h2 class="title is-4">Make Your Tribute Gift</h2>
+            <div id="lightning-out" class="lwc-slot" aria-live="polite" aria-busy="true"
+                title="Donation form will load here">
+                <!-- Placeholder UI while your Lightning Out script mounts the LWC -->
+                <div class="skeleton" style="width: 60%"></div>
+                <div class="skeleton" style="width: 80%"></div>
+                <div class="skeleton" style="width: 40%"></div>
+                <div class="skeleton" style="width: 70%"></div>
+                <p class="has-text-grey is-size-7">
+                    The donation form will appear here. If it does not load, please refresh the page.
+                </p>
+            </div>
+
+            <!--
+        NOTE:
+        Render your LWC into the #lwc-mount element using Lightning Out.
+        Example (for later, not included by request):
+          <script src="https://<your-domain>.lightning.force.com/lightning/lightning.out.js"></script>
+          <script>
+            // $Lightning.use(...); then createComponent into document.getElementById('lwc-mount')
+          </script>
+      -->
+        </div>
+    </main>
+
+    <!-- ========== Footer Section ========== -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Organization Name</strong> · 1234 Example St, City, ST 00000 ·
+                <a href="mailto:donate@example.org">donate@example.org</a> · (555) 555-5555
+            </p>
+            <p class="is-size-7 has-text-grey">
+                Thank you for your generosity. Your contribution makes a difference.
+            </p>
+        </div>
+    </footer>
+
+    <noscript>
+        <section class="section">
+            <div class="container has-text-centered">
+                <p class="notification is-warning">Please enable JavaScript to load the donation form.</p>
+            </div>
+        </section>
+    </noscript>
+    <script>
+        $Lightning.use(
+            'c:SimpleLOutApp', // name of the Lightning Out app
+            function () { // callback after the framework and app load
+                $Lightning.createComponent(
+                    'c:loutAura', // top-level component of the Lightning Out app
+                    {}, // attributes to set on the component
+                    'lightning-out', // DOM element ID where the component is inserted
+                    function (cmp) { // callback after the component loads
+                        console.log('The component was created.');
+                    }
+                );
+            },
+            'https://orgfarm-db4647980b-dev-ed.develop.my.site.com/auraFormLightningOut' // Experience Cloud site endpoint
+        );
+    </script>
+</body>
+
 </html>
-
