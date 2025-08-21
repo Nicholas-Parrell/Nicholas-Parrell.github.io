@@ -179,17 +179,20 @@ Cancellation Reason:<select  id="00NUi000003QpFF" name="00NUi000003QpFF" title="
     <main id="form-section" class="section" role="main">
         <div class="container">
             <h2 class="title is-4">Make Your Tribute Gift</h2>
-            <div id="lightning-out" class="lwc-slot" aria-live="polite" aria-busy="true"
-                title="Donation form will load here">
-                <!-- Placeholder UI while your Lightning Out script mounts the LWC -->
-                <div class="skeleton" style="width: 60%"></div>
-                <div class="skeleton" style="width: 80%"></div>
-                <div class="skeleton" style="width: 40%"></div>
-                <div class="skeleton" style="width: 70%"></div>
-                <p class="has-text-grey is-size-7">
-                    The donation form will appear here. If it does not load, please refresh the page.
-                </p>
+            <div id="lightning-out" class="lwc-slot" aria-live="polite">
+                <div id="lightning-out-placeholder" class="lwc-slot" aria-live="polite" aria-busy="true"
+                    title="Donation form will load here">
+                    <!-- Placeholder UI while your Lightning Out script mounts the LWC -->
+                    <div class="skeleton" style="width: 60%"></div>
+                    <div class="skeleton" style="width: 80%"></div>
+                    <div class="skeleton" style="width: 40%"></div>
+                    <div class="skeleton" style="width: 70%"></div>
+                    <p class="has-text-grey is-size-7">
+                        The donation form will appear here. If it does not load, please refresh the page.
+                    </p>
+                </div>
             </div>
+
 
             <!--
         NOTE:
@@ -233,6 +236,13 @@ Cancellation Reason:<select  id="00NUi000003QpFF" name="00NUi000003QpFF" title="
                     'lightning-out', // DOM element ID where the component is inserted
                     function (cmp) { // callback after the component loads
                         console.log('The component was created.');
+                        var ph = document.getElementById('lightning-out-placeholder');
+                        if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+
+                        // mark the mount as ready
+                        var mount = document.getElementById('lightning-out');
+                        if (mount) mount.setAttribute('aria-busy', 'false');
+
                     }
                 );
             },
