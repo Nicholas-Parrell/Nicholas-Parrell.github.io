@@ -266,7 +266,7 @@ Cancellation Reason:<select  id="00NUi000003QpFF" name="00NUi000003QpFF" title="
             const mount = document.getElementById('lightning-mount');
             if (mount) mount.setAttribute('aria-busy','false');
             // You can also remove skeletons here if you render inside this same node.
-            // Example: mount.querySelectorAll('.skeleton').forEach(el => el.remove());
+            mount.querySelectorAll('.skeleton').forEach(el => el.remove());
             console.log('Donation component mounted.');
           }
         );
